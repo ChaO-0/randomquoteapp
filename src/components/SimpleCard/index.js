@@ -52,10 +52,12 @@ const SimpleCard = () => {
           <a
             href={`https://twitter.com/intent/tweet?hashtags=quotes&text="${Quote.content}" -${Quote.author}`}
             target="_blank"
+            rel="noopener"
           >
             <button
               className="soc"
               style={{ background: !!Color ? Color : "" }}
+              aria-label="Left Align"
             >
               <i className="fa fa-twitter"></i>
             </button>{" "}
@@ -64,6 +66,7 @@ const SimpleCard = () => {
             className="new-quote"
             style={{ background: !!Color ? Color : "" }}
             onClick={handleClick}
+            aria-label="Right Align"
           >
             New Quote
           </button>
