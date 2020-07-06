@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic");
+body {
+  transition: 1s;
+}
+
+blockquote {
+  font-size: 1.4em;
+  width: 40%;
+  margin: 30vh auto;
+  font-family: "Open Sans";
+  font-style: italic;
+  color: #555555;
+  padding: 1.2em 30px 1.2em 75px;
+  line-height: 1.6;
+  position: relative;
+  background: #ededed;
+  border-radius: 5px;
+}
+
+blockquote::before {
+  font-family: Arial;
+  content: "\201C";
+  font-size: 4em;
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  transition: 1s;
+}
+
+blockquote::after {
+  content: "";
+}
+
+blockquote span {
+  display: block;
+  color: #333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 1em;
+  text-align: right;
+  transition: 0.5s;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.quote {
+  transition: 0.5s;
+}
+
+.fade {
+  opacity: 0;
+}
+
+.new-quote {
+  position: absolute;
+  right: 20px;
+}
+
+.soc {
+  margin: 0 4px;
+  padding: 10px 15px;
+}
+
+.footer {
+  margin-top: -210px;
+  color: white;
+  text-align: center;
+}
+
+button {
+  border-style: none;
+  border-radius: 3px;
+  background-color: #16a085;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: 1s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  blockquote {
+    font-size: 16px;
+    width: 60%;
+    font-family: "Open Sans";
+    font-style: italic;
+    color: #555555;
+    padding: 1.2em 30px 1.2em 75px;
+    line-height: 1.6;
+    position: relative;
+    background: #ededed;
+  }
+}
