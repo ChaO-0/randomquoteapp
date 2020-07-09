@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// Component ini berfungsi untuk menampilkan quote yang didapat pada saat
+// Melakukan fetch API, serta untuk lebih mempercantik component ini
+// Saat loading component(request) saya membuat fade in dan fade out secara manual
 const QuoteContent = ({ quote, author, error, loading, color }) => {
   return (
     <>

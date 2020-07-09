@@ -19,6 +19,7 @@ export const fetchQuoteFailure = (error) => ({
   payload: error,
 });
 
+//Fetch API untuk mendapatkan data quotes
 export const fetchQuote = () => (dispatch) => {
   dispatch(fetchQuoteRequest());
   setTimeout(() => {

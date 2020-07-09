@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+// Component ini berfungsi untuk menampilkan button serta
+// Melakukan fetchAPI disaat button di klik
 const QuoteButtons = ({ quote, author, color, handleClick }) => {
   return (
     <div>
@@ -34,5 +36,6 @@ const mapStateToProps = (state) => ({
   author: state.quote.author,
 });
 
+// Connect reducer ke component
 export default connect(mapStateToProps)(QuoteButtons);
 export { QuoteButtons };

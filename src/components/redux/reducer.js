@@ -10,6 +10,7 @@ const initState = {
   loading: false,
 };
 
+// Reducer untuk memberitahu redux apa yang harus dilakukan saat melakukan fetch API
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case FETCH_QUOTE_REQUEST:

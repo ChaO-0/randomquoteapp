@@ -1,3 +1,4 @@
+// Fungsi untuk mendapatkan color secara random didalam list
 const getRandomColor = () => {
   const colors = [
     "#16a085",
