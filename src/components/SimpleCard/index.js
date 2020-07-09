@@ -1,80 +1,46 @@
 import React, { useState, useEffect } from "react";
-import { getRandomColor, getRandomQuote } from "./getRandom";
+import { getRandomColor } from "./getRandom";
+import { fetchQuote } from "../redux/actions";
+import { connect } from "react-redux";
+import QuoteContent from "./QuoteContent";
+import QuoteButtons from "./QuoteButtons";
 
-const SimpleCard = () => {
-  const [Quote, setQuote] = useState({
-    content: "",
-    author: "",
-    error: "",
-    loading: false,
-  });
+const SimpleCard = ({ fetchQuote }) => {
   const [Color, setColor] = useState("");
+
+  const setBodyColor = (color) => {
+    document.body.style = `background: ${color}`;
+  };
 
   useEffect(() => {
     const color = getRandomColor();
-    document.body.style = `background: ${color}`;
+    setBodyColor(color);
     setColor(color);
-    getRandomQuote(setQuote);
-  }, []);
+    fetchQuote();
+  }, [fetchQuote]);
 
   const handleClick = () => {
-    setQuote({ ...Quote, loading: true });
     const color = getRandomColor();
-    setTimeout(() => {
-      document.body.style = `background: ${color}`;
-      setColor(color);
-      getRandomQuote(setQuote);
-    }, 500);
+    setBodyColor(color);
+    setColor(color);
+    fetchQuote();
   };
 
   return (
     <>
       <blockquote style={{ color: !!Color ? Color : "" }}>
-        <div className={Quote.loading ? "quote fade" : "quote"}>
-          {!!Quote.content
-            ? Quote.content
-            : Quote.error
-            ? Quote.error
-            : "Loading..."}
-        </div>
-        <span
-          className={Quote.loading ? "fade" : ""}
-          style={{ color: !!Color ? Color : "" }}
-        >
-          -
-          {!!Quote.author
-            ? Quote.author
-            : Quote.error
-            ? Quote.error
-            : "Loading..."}
-        </span>
-        <div>
-          <a
-            href={`https://twitter.com/intent/tweet?hashtags=quotes&text="${Quote.content}" -${Quote.author}`}
-            target="_blank"
-            rel="noopener"
-          >
-            <button
-              className="soc"
-              style={{ background: !!Color ? Color : "" }}
-              aria-label="Left Align"
-            >
-              <i className="fa fa-twitter"></i>
-            </button>{" "}
-          </a>
-          <button
-            className="new-quote"
-            style={{ background: !!Color ? Color : "" }}
-            onClick={handleClick}
-            aria-label="Right Align"
-          >
-            New Quote
-          </button>
-        </div>
+        <QuoteContent color={Color} />
+        <QuoteButtons color={Color} handleClick={handleClick} />
       </blockquote>
-      <div className="footer">Copyright&copy;ChaO</div>
+      <div data-testid="footer" className="footer">
+        Copyright&copy;ChaO
+      </div>
     </>
   );
 };
 
-export default SimpleCard;
+const mapDispatchToProps = (dispatch) => ({
+  fetchQuote: () => dispatch(fetchQuote()),
+});
+
+export default connect(null, mapDispatchToProps)(SimpleCard);

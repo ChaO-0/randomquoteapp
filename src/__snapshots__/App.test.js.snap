@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches button snapshot 1`] = `
+<div>
+  <a
+    href="https://twitter.com/intent/tweet?hashtags=quotes&text=\\"undefined\\" -undefined"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <button
+      aria-label="Left Align"
+      className="soc"
+      style={
+        Object {
+          "background": "",
+        }
+      }
+    >
+      <i
+        className="fa fa-twitter"
+      />
+    </button>
+  </a>
+  <button
+    aria-label="Right Align"
+    className="new-quote"
+    style={
+      Object {
+        "background": "",
+      }
+    }
+  >
+    New Quote
+  </button>
+</div>
+`;
+
+exports[`Matches snapshot 1`] = `
+Array [
+  <div
+    className="quote"
+  >
+    
+  </div>,
+  <span
+    className=""
+    style={
+      Object {
+        "color": "",
+      }
+    }
+  >
+    -
+    
+  </span>,
+]
+`;
