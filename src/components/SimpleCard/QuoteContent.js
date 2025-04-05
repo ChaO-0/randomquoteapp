@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 // Melakukan fetch API, serta untuk lebih mempercantik component ini
 // Saat loading component(request) saya membuat fade in dan fade out secara manual
 const QuoteContent = ({ quote, author, error, loading, color }) => {
+  console.log({ quote, author });
   return (
     <>
       <div className={loading ? "quote fade" : "quote"}>
@@ -21,7 +22,7 @@ const QuoteContent = ({ quote, author, error, loading, color }) => {
 };
 
 const mapStateToProps = (state) => ({
-  quote: state.quote.content,
+  quote: state.quote.quote,
   author: state.quote.author,
   error: state.error,
   loading: state.loading,
