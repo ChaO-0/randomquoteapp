@@ -24,7 +24,7 @@ export const fetchQuote = () => (dispatch) => {
   dispatch(fetchQuoteRequest());
   setTimeout(() => {
     axios
-      .get("https://api.quotable.io/random")
+      .get("http://api.quotable.io/random")
       .then((res) => {
         const quote = res.data;
         dispatch(fetchQuoteSuccess(quote));
